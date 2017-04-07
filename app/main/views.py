@@ -12,17 +12,10 @@ from flask_login import login_user
 from flask_login import logout_user, login_required
 from flask_login import current_user
 
-
-@main.route('/login', methods=['get', 'post'])
-def login():
-    form1 = LoginForm()
-    if form1.validate_on_submit():
-        user = Students.query.filter_by(username=form1.name.data).first()
-        if user is not None and user.verify_password(form1.password.data):
-            login_user(user, form1.remember_me.data)
-            flash(u'登录成功.')
-            return redirect(url_for('main.welcomepage'))
-    return render_template('user_login.html', Form=form1)
+# 主页面
+@main.route('/', methods=['get'])
+def welcomepage():
+    return render_template('welcome.html')
 
 
 # 登录
@@ -30,8 +23,8 @@ def login():
 def login():
     form1 = LoginForm()
     if form1.validate_on_submit():
-        user = Students.query.filter_by(username=form1.name.data).first()
-        if user is not None and user.verify_password(form1.password.data):
+        user = Manager.query.filter_by(managerId=form1.name.data).first()
+        if user is not None: #and user.verify_password(form1.password.data):
             login_user(user, form1.remember_me.data)
             flash(u'登录成功.')
             return redirect(url_for('main.welcomepage'))
@@ -55,5 +48,13 @@ def reg():
         flash(u'一封确认邮件已经发送到你的邮箱里.请登录后用当前浏览器打开邮件中的网站完成确认')
         return redirect(url_for('main.login'))
     return render_template('reg.html', Form=form)
+
+
+@main.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('You have been logged out.')
+    return redirect(url_for('main.welcomepage'))
 
 

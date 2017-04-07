@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}welcom!{% endblock %}
+{% block page_content %}
+<div class="page-header">
+    {% if current_user.is_authenticated %}
+           <h1>{{ current_user.username }}</h1>
+                {% else %}
+             <h1> 陌生人您好，请登录 </h1>
+                 {% endif %}
+</div>
+<div class="col-md-4">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

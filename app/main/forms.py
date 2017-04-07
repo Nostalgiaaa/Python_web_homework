@@ -45,7 +45,7 @@ class NameForm(Form):
     password = PasswordField('what is your Password?', validators=[
         Required(), EqualTo('password2', message='Passwords must match.')])
     password2 = PasswordField('Confirm password', validators=[InputRequired()])
-    nickname = StringField('what is your nickname?', validators=[InputRequired(), nicknamecheck])
+    nickname = StringField('what is your nickname?', validators=[InputRequired()])
     mail = StringField('what is your real mail?', validators=[Email(), validate_email])
     submit = SubmitField(u'注册')
 
