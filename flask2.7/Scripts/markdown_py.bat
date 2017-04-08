@@ -1,1 +1,0 @@
-@"E:\test_flask\flask2.7\Scripts\python.exe" "E:\test_flask\flask2.7\Scripts\markdown_py" %*
