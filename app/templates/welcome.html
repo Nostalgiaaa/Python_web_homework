@@ -4,7 +4,7 @@
 {% block page_content %}
 <div class="page-header">
     {% if current_user.is_authenticated %}
-           <h1>{{ current_user.username }}</h1>
+           <h1>您好： {{ current_user.Id }}</h1>
                 {% else %}
              <h1> 陌生人您好，请登录 </h1>
                  {% endif %}

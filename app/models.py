@@ -7,21 +7,84 @@ from flask import current_app
 from datetime import datetime
 import bleach
 from markdown import markdown
+import json
 
 
 class Students(UserMixin, db.Model):
     __tablename__ = 'Students'
-    studentId = db.Column(db.Integer, primary_key=True)
+    Id = db.Column(db.Integer, primary_key=True)
     password_hash = db.Column(db.String(128))
     email = db.Column(db.String(80), unique=True)
 
     def __init__(self, student_id, password, email):
-        self.studentId = student_id
+        self.Id = student_id
         self.password = password
         self.email = email
 
     def __repr__(self):
-        return '<Student %r>' % self.studentId
+        return '<Student %r>' % self.Id
+
+    @property
+    def password(self):
+        raise AttributeError('password is not a readable')
+
+    @password.setter
+    def password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
+
+# @login_manager.user_loader
+# def load_user(user_id):
+#     return UserMixin.query.get(int(user_id))
+
+
+class Manager(UserMixin, db.Model):
+    __tablename__ = 'manager'
+    Id = db.Column(db.Integer, primary_key=True)
+    password_hash = db.Column(db.String(128))
+    email = db.Column(db.String(80), unique=True)
+    power = db.Column(db.Integer)
+
+    def __init__(self, managerId, password, email):
+        self.Id = managerId
+        self.password = password
+        self.email = email
+
+    def __repr__(self):
+        return '<Student %r>' % self.Id
+
+    @property
+    def password(self):
+        raise AttributeError('password is not a readable')
+
+    @password.setter
+    def password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
+    def get_id(self):
+        return self.Id
+
+
+
+class Teacher(UserMixin, db.Model):
+    __tablename__ = 'teacher'
+    Id = db.Column(db.Integer, primary_key=True)
+    password_hash = db.Column(db.String(128))
+    email = db.Column(db.String(80), unique=True)
+
+    def __init__(self, student_id, password, email):
+        self.Id = student_id
+        self.password = password
+        self.email = email
+
+    def __repr__(self):
+        return '<Student %r>' % self.Id
 
     @property
     def password(self):
@@ -37,62 +100,7 @@ class Students(UserMixin, db.Model):
 
 @login_manager.user_loader
 def load_user(user_id):
-    return Students.query.get(int(user_id))
-
-
-class Manager(UserMixin, db.Model):
-    __tablename__ = 'manager'
-    managerId = db.Column(db.Integer, primary_key=True)
-    password_hash = db.Column(db.String(128))
-    email = db.Column(db.String(80), unique=True)
-    power = db.Column(db.Integer)
-
-    def __init__(self, student_id, password, email):
-        self.managerId = student_id
-        self.password = password
-        self.email = email
-
-    def __repr__(self):
-        return '<Student %r>' % self.studentId
-
-    @property
-    def password(self):
-        raise AttributeError('password is not a readable')
-
-    @password.setter
-    def password(self, password):
-        self.password_hash = generate_password_hash(password)
-
-    def verify_password(self, password):
-        return check_password_hash(self.password_hash, password)
-
-
-class Teacher(UserMixin, db.Model):
-    __tablename__ = 'teacher'
-    teacherId = db.Column(db.Integer, primary_key=True)
-    password_hash = db.Column(db.String(128))
-    email = db.Column(db.String(80), unique=True)
-
-    def __init__(self, student_id, password, email):
-        self.teacherId = student_id
-        self.password = password
-        self.email = email
-
-    def __repr__(self):
-        return '<Student %r>' % self.studentId
-
-    @property
-    def password(self):
-        raise AttributeError('password is not a readable')
-
-    @password.setter
-    def password(self, password):
-        self.password_hash = generate_password_hash(password)
-
-    def verify_password(self, password):
-        return check_password_hash(self.password_hash, password)
-
-
+    return Manager.query.get(int(user_id))
 
 
 

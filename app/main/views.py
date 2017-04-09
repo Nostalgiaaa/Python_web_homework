@@ -23,7 +23,7 @@ def welcomepage():
 def login():
     form1 = LoginForm()
     if form1.validate_on_submit():
-        user = Manager.query.filter_by(managerId=form1.name.data).first()
+        user = Manager.query.filter_by(Id=form1.name.data).first()
         if user is not None: #and user.verify_password(form1.password.data):
             login_user(user, form1.remember_me.data)
             flash(u'登录成功.')
@@ -42,19 +42,22 @@ def reg():
                     email=form.mail.data, nickname=form.nickname.data)
         db.session.add(user)
         db.session.commit()
-        token = user.generate_confirmation_token()
-        send_email(user.email, 'Confirm Your Account',
-                   'confirm', user=user, token=token)
-        flash(u'一封确认邮件已经发送到你的邮箱里.请登录后用当前浏览器打开邮件中的网站完成确认')
         return redirect(url_for('main.login'))
     return render_template('reg.html', Form=form)
 
 
+# 登出
 @main.route('/logout')
 @login_required
 def logout():
     logout_user()
     flash('You have been logged out.')
     return redirect(url_for('main.welcomepage'))
+
+
+
+
+
+
 
 
