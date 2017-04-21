@@ -16,8 +16,8 @@ class Students(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     email = db.Column(db.String(80), unique=True)
 
-    def __init__(self, student_id, password, email):
-        self.Id = student_id
+    def __init__(self, Id, password, email):
+        self.Id = Id
         self.password = password
         self.email = email
 
@@ -34,6 +34,9 @@ class Students(UserMixin, db.Model):
 
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+    def get_id(self):
+        return self.Id
 
 
 # @login_manager.user_loader
@@ -100,7 +103,10 @@ class Teacher(UserMixin, db.Model):
 
 @login_manager.user_loader
 def load_user(user_id):
-    return Manager.query.get(int(user_id))
+    if Manager.query.get(int(user_id)):
+        return Manager.query.get(int(user_id))
+    elif Students.query.get(int(user_id)):
+        return Students.query.get(int(user_id))
 
 
 
