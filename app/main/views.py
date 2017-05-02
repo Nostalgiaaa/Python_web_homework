@@ -77,13 +77,19 @@ def student_work():
 
 # 管理员管理学生界面
 @login_required
-@main.route('/manager_work', methods=['get', 'post'])
+@main.route('/manager_student', methods=['get', 'post'])
 def manager_student():
     form_regstudent = RegStudent()
     form_regstudent_one = RegStudent_one()
     form_password = RegStudent_password()
     return render_template('manager_student.html', Form=form_regstudent, Form_student_one=form_regstudent_one, Form_password=form_password)
 
+
+# 管理员管理教师界面
+@login_required
+@main.route('/manager_teacher', methods=['get', 'post'])
+def manager_teacher():
+    return render_template('manager_teacher.html')
 
 
 
