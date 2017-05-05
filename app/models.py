@@ -14,7 +14,7 @@ class Students(UserMixin, db.Model):
     __tablename__ = 'Students'
     Id = db.Column(db.Integer, primary_key=True)
     password_hash = db.Column(db.String(128))
-    email = db.Column(db.String(80), unique=True)
+    email = db.Column(db.String(80))
 
     def __init__(self, Id, password, email):
         self.Id = Id
@@ -39,16 +39,11 @@ class Students(UserMixin, db.Model):
         return self.Id
 
 
-# @login_manager.user_loader
-# def load_user(user_id):
-#     return UserMixin.query.get(int(user_id))
-
-
 class Manager(UserMixin, db.Model):
     __tablename__ = 'manager'
-    Id = db.Column(db.Integer, primary_key=True)
+    Id = db.Column(db.String, primary_key=True)
     password_hash = db.Column(db.String(128))
-    email = db.Column(db.String(80), unique=True)
+    email = db.Column(db.String(80))
     power = db.Column(db.Integer)
 
     def __init__(self, managerId, password, email):
@@ -77,12 +72,12 @@ class Manager(UserMixin, db.Model):
 
 class Teacher(UserMixin, db.Model):
     __tablename__ = 'teacher'
-    Id = db.Column(db.Integer, primary_key=True)
+    Id = db.Column(db.String, primary_key=True)
     password_hash = db.Column(db.String(128))
     email = db.Column(db.String(80), unique=True)
 
-    def __init__(self, student_id, password, email):
-        self.Id = student_id
+    def __init__(self, Id, password, email):
+        self.Id = Id
         self.password = password
         self.email = email
 
@@ -107,6 +102,8 @@ def load_user(user_id):
         return Manager.query.get(int(user_id))
     elif Students.query.get(int(user_id)):
         return Students.query.get(int(user_id))
+    elif Teacher.query.get(int(user_id)):
+        return Teacher.query.get(int(user_id))
 
 
 

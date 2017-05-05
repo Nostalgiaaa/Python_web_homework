@@ -6,7 +6,7 @@ from ..models import *
 from wtforms.validators import Required, Length, Email, Regexp, EqualTo
 from wtforms import ValidationError
 from flask_pagedown.fields import PageDownField
-from ..models import Students
+from ..models import Students, Teacher
 
 def my_length_check(form, field):
     if len(field.data) < 6:
@@ -74,26 +74,30 @@ def studentnumcheck(form, field):
     if not Students.query.filter_by(Id=field.data).first():
         raise ValidationError(u'学号不存在')
 
+def teachernumcheck(form, field):
+    if not Teacher.query.filter_by(Id=field.data).first():
+        raise ValidationError(u'学号不存在')
 
 
-class NameForm(Form):
-    def validate_username(self, field):
-        if User.query.filter_by(username=field.data).first():
-            raise ValidationError('Username already in use.')
 
-    def validate_email(self, field):
-        if User.query.filter_by(email=field.data).first():
-            raise ValidationError('Email already registered.')
-    name = StringField('Username', validators=[
-        Required(), Length(1, 64), Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
-                                          'Usernames must have only letters, '
-                                          'numbers, dots or underscores'), validate_username, usercheck])
-    password = PasswordField('what is your Password?', validators=[
-        Required(), EqualTo('password2', message='Passwords must match.')])
-    password2 = PasswordField('Confirm password', validators=[InputRequired()])
-    nickname = StringField('what is your nickname?', validators=[InputRequired()])
-    mail = StringField('what is your real mail?', validators=[Email(), validate_email])
-    submit = SubmitField(u'注册')
+# class NameForm(Form):
+    # def validate_username(self, field):
+    #     if User.query.filter_by(username=field.data).first():
+    #         raise ValidationError('Username already in use.')
+    #
+    # def validate_email(self, field):
+    #     if User.query.filter_by(email=field.data).first():
+    #         raise ValidationError('Email already registered.')
+    # name = StringField('Username', validators=[
+    #     Required(), Length(1, 64), Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
+    #                                       'Usernames must have only letters, '
+    #                                       'numbers, dots or underscores'), validate_username, usercheck])
+    # password = PasswordField('what is your Password?', validators=[
+    #     Required(), EqualTo('password2', message='Passwords must match.')])
+    # password2 = PasswordField('Confirm password', validators=[InputRequired()])
+    # nickname = StringField('what is your nickname?', validators=[InputRequired()])
+    # mail = StringField('what is your real mail?', validators=[Email(), validate_email])
+    # submit = SubmitField(u'注册')
 
 
 class LoginForm(Form):
@@ -122,4 +126,13 @@ class RegStudent_one(Form):
 
 class RegStudent_password(Form):
     studentnum = StringField(u'学号', validators=[InputRequired(), studentnumcheck])
-    submit_password = SubmitField(u'确认添加个人')
+    submit_password = SubmitField(u'确认修改个人')
+
+
+class Regteacher(Form):
+    teachernum = StringField(u'教师账号', validators=[InputRequired(), usercheck])
+    submit_teacher = SubmitField(u'确认添加个人')
+
+class Regteacher_password(Form):
+    teachernum_password = StringField(u'教工号', validators=[InputRequired(), teachernumcheck])
+    submit_password_teacher = SubmitField(u'确认修改个人')

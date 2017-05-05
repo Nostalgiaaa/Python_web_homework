@@ -5,13 +5,12 @@ from . import main
 from datetime import datetime
 from flask import render_template, session, redirect, url_for, request, flash, current_app
 from . import main
-from .forms import NameForm, LoginForm, RegStudent, RegStudent_one, RegStudent_password
+from .forms import LoginForm, RegStudent, RegStudent_one, RegStudent_password, Regteacher, Regteacher_password
 from ..__init__ import db
 from ..models import *
 from flask_login import login_user
 from flask_login import logout_user, login_required
 from flask_login import current_user
-from ..models import Students
 
 
 # 主页面
@@ -27,6 +26,8 @@ def manager_page():
     form_regstudent = RegStudent()  # 按班级添加的表单
     form_regstudent_one = RegStudent_one()  # 按个人添加的表单
     form_password = RegStudent_password()    # 重设学生密码
+    form_regteacher = Regteacher()  # 添加老师的表单
+    form_teacher_password = Regteacher_password()  # 重设教师密码
     # 同一个页面两个表单提交的时候，因为validate_on_submit只会判断是否post，从而提交第二个表单也会走第一个if代码块，所以首先判断
     # 两个表单的submit是否有值，参考https://zhuanlan.zhihu.com/p/23437362
     if form_regstudent.submit.data and form_regstudent.validate_on_submit():
@@ -53,6 +54,22 @@ def manager_page():
         Id = form_regstudent.studentnum.data
         user = Students.query.filter_by(Id=Id).first()
         user.password = '123456789'
+        db.session.commit()
+        flash(u'重置密码成功.')
+        return redirect(url_for('main.manager_page'))
+
+    if form_regteacher.submit_teacher.data and form_regteacher.validate_on_submit():
+        Id = form_regteacher.teachernum.data
+        user = Teacher(Id=Id, password='teacher123456', email='None')
+        db.session.add(user)
+        db.session.commit()
+        flash(u'添加教师成功.')
+        return redirect(url_for('main.manager_page'))
+
+    if form_teacher_password.submit_password_teacher.data and form_teacher_password.validate_on_submit():
+        Id = form_teacher_password.teachernum_password.data
+        user = Teacher.query.filter_by(Id=Id).first()
+        user.password = 'teacher123456'
         db.session.commit()
         flash(u'重置密码成功.')
         return redirect(url_for('main.manager_page'))
@@ -89,8 +106,9 @@ def manager_student():
 @login_required
 @main.route('/manager_teacher', methods=['get', 'post'])
 def manager_teacher():
-    return render_template('manager_teacher.html')
-
+    form_regteacher = Regteacher()
+    form_teacher_password = Regteacher_password()
+    return render_template('manager_teacher.html', Form_teacher=form_regteacher, Form_password_teacher=form_teacher_password)
 
 
 # 登录
