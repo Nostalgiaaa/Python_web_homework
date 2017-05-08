@@ -1,0 +1,51 @@
+{% extends "bootstrap/base.html" %}
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock %}
+{% block title %}欢迎，学子们{% endblock %}
+{% block navbar %}
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="{{url_for('main.welcomepage')}}">首页</a></li>
+
+            <li role="presentation" id="work"><a href="#">作业</a></li>
+            <li role="presentation" id="message"><a href="#">通知</a></li>
+            <li role="presentation" id="score"><a href="#">成绩</a></li>
+            <li role="presentation" id="statistics"><a href="#">统计</a></li>
+            <li role="presentation" id="timeline"><a href="#">时间线</a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('main.logout') }}">登出</a></li>
+            {% else %}
+            <li><a href="{{ url_for('main.login') }}">登录</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+</div>
+<script>
+   $(document).ready(function(){
+  $("#work").click(function(){
+  $("#show_place").load("{{ url_for('main.student_work') }}");
+  });
+
+});
+</script>
+<div class="col-md-12" id="show_place">
+
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+        {% endfor %}
+
+    </div>
+    {% endblock %}
+</div>

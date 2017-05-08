@@ -1,0 +1,44 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block scripts %}
+{{ super() }}
+{% endblock %}
+{% block navbar %}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-md-2">
+            <div class="tabbable tabs-left"> <!-- Only required for left/right tabs -->
+                <ul class="nav nav-tables nav-stacked">
+                    <li class="active"><a href="#tab1" data-toggle="tab">按班级添加</a></li>
+                    <li><a href="#tab2" data-toggle="tab">按个人添加</a></li>
+                    <li><a href="#tab3" data-toggle="tab">重置学生密码</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <div class="page-header">
+                        <h1>按班级添加</h1>
+                    </div>
+                    {{ wtf.quick_form(Form) }}<p>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <div class="page-header">
+                        <h1>按个人添加</h1>
+                    </div>
+                    {{ wtf.quick_form(Form_student_one) }}<p>
+                </div>
+                <div class="tab-pane" id="tab3">
+                    <div class="page-header">
+                        <h1>重置学生密码</h1>
+                    </div>
+                    {{ wtf.quick_form(Form_password_teacher) }}<p>
+                </div>
+            </div>
+        </div>
+        <div class="'col-md-6'"></div>
+    </div>
+</div>
+
+{% endblock %}
