@@ -11,6 +11,7 @@ from ..models import *
 from flask_login import login_user
 from flask_login import logout_user, login_required
 from flask_login import current_user
+import time
 
 
 # 主页面
@@ -37,10 +38,14 @@ def manager_page():
                 studentid = Id + '0' + str(every)
             else:
                 studentid = Id + str(every)
+            # tstart = time.time()
             user = Students(Id=studentid, password='lgd123456', email='None')
+            # tend = time.time()
             db.session.add(user)
+            # print "It cost %f sec" % (tend - tstart)
         db.session.commit()
         flash(u'班级添加成功.')
+        tend = time.time()
         return redirect(url_for('main.manager_page'))
     if form_regstudent_one.submit_one.data and form_regstudent_one.validate_on_submit():
         Id = form_regstudent.grade.data + form_regstudent.typenum.data + form_regstudent.classnum.data +form_regstudent.studentnum.data
@@ -73,7 +78,6 @@ def manager_page():
         db.session.commit()
         flash(u'重置密码成功.')
         return redirect(url_for('main.manager_page'))
-
 
     return render_template('manager_page.html')
 

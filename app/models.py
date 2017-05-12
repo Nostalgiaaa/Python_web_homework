@@ -69,7 +69,6 @@ class Manager(UserMixin, db.Model):
         return self.Id
 
 
-
 class Teacher(UserMixin, db.Model):
     __tablename__ = 'teacher'
     Id = db.Column(db.String, primary_key=True)
@@ -104,6 +103,9 @@ def load_user(user_id):
         return Students.query.get(int(user_id))
     elif Teacher.query.get(int(user_id)):
         return Teacher.query.get(int(user_id))
+
+
+
 
 
 
