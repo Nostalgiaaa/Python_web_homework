@@ -133,6 +133,23 @@ class Regteacher(Form):
     teachernum = StringField(u'教师账号', validators=[InputRequired(), usercheck])
     submit_teacher = SubmitField(u'确认添加个人')
 
+
 class Regteacher_password(Form):
     teachernum_password = StringField(u'教工号', validators=[InputRequired(), teachernumcheck])
-    submit_password_teacher = SubmitField(u'确认修改个人')
+    submit_password_teacher = SubmitField(u'确认修改密码')
+
+
+class AddClass(Form):
+    class_name = StringField(u'课程名', validators=[InputRequired()])
+    submit_addclass = SubmitField(u'确认添加')
+
+
+class DeleteClass(Form):
+    class_name_delete = StringField(u'课程名', validators=[InputRequired()])
+    submit_deleteclass = SubmitField(u'确认删除')
+
+
+class ChangeClass(Form):
+    class_name_change = StringField(u'原来课程名', validators=[InputRequired()])
+    class_name_after_change = StringField(u'新课程名', validators=[InputRequired()])
+    submit_changeclass = SubmitField(u'确认修改')

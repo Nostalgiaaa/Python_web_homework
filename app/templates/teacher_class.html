@@ -1,0 +1,62 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block scripts %}
+{{ super() }}
+{% endblock %}
+{% block navbar %}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-md-2">
+            <div class="tabbable tabs-left"> <!-- Only required for left/right tabs -->
+                <ul class="nav nav-tables nav-stacked">
+                    <li class="active"><a href="#tab1" data-toggle="tab">新增课程</a></li>
+                    <li><a href="#tab2" data-toggle="tab">删除课程</a></li>
+                    <li><a href="#tab3" data-toggle="tab">修改课程</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <div class="page-header">
+                        <h1>新增课程</h1>
+                    </div>
+                    {{ wtf.quick_form(Form_addclass) }}<p>
+                    <h2>授课列表</h2><p>
+                    <ul class="list-group">
+                        {% for item in return_list %}
+                        <li class="list-group-item">课程id：{{ item[0] }}；课程名称：{{ item[1] }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <div class="page-header">
+                        <h1>删除课程</h1>
+                    </div>
+                    {{ wtf.quick_form(Form_deleteclass) }}<p>
+                    <h2>授课列表</h2><p>
+                    <ul class="list-group">
+                        {% for item in return_list %}
+                        <li class="list-group-item">课程id：{{ item[0] }}；课程名称：{{ item[1] }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="tab-pane" id="tab3">
+                    <div class="page-header">
+                        <h1>修改课程</h1>
+                    </div>
+                    {{ wtf.quick_form(Form_changeclass) }}<p>
+                    <h2>授课列表</h2><p>
+                    <ul class="list-group">
+                        {% for item in return_list %}
+                        <li class="list-group-item">课程id：{{ item[0] }}；课程名称：{{ item[1] }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="'col-md-6'"></div>
+    </div>
+</div>
+
+{% endblock %}

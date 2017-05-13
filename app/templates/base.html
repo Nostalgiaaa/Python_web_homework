@@ -13,7 +13,6 @@
                 <li><a href="{{url_for('main.welcomepage')}}">首页</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ url_for('main.reg') }}">快速注册</a></li>
                 {% if current_user.is_authenticated %}
             <li><a href="{{ url_for('main.logout') }}">登出</a></li>
                 {% else %}

@@ -2,12 +2,7 @@ from . import db
 from flask_login import UserMixin
 from . import login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
-from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
-from datetime import datetime
-import bleach
-from markdown import markdown
-import json
 
 
 class Students(UserMixin, db.Model):
@@ -93,6 +88,18 @@ class Teacher(UserMixin, db.Model):
 
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+    def get_id(self):
+        return self.Id
+
+
+class TeachClass(db.Model):
+    __tablename__ = 'teachclass'
+    class_id = db.Column(db.Integer, primary_key=True)
+    teacher_id = db.Column(db.String(10))
+    class_name = db.Column(db.String(50))
+
+
 
 
 @login_manager.user_loader
