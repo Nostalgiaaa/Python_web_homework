@@ -153,3 +153,22 @@ class ChangeClass(Form):
     class_name_change = StringField(u'原来课程名', validators=[InputRequired()])
     class_name_after_change = StringField(u'新课程名', validators=[InputRequired()])
     submit_changeclass = SubmitField(u'确认修改')
+
+
+class AddWork(Form):
+    work_name = StringField(u'作业名', validators=[InputRequired()])
+    class_id = StringField(u'课程id', validators=[InputRequired()])
+    end_date = StringField(u'截止日期', validators=[InputRequired()])
+    submit_add_work = SubmitField(u'确认添加')
+
+
+class DeleteWork(Form):
+    work_name_delete = StringField(u'作业id', validators=[InputRequired()])
+    submit_delete_work = SubmitField(u'确认删除')
+
+
+class ChangeWork(Form):
+    work_id = StringField(u'要修改的作业id', validators=[InputRequired()])
+    work_name_after_change = StringField(u'新课程名，不填即为不修改', validators=[])
+    end_date_after_change = StringField(u'新截止日期,不填即为不修改', validators=[])
+    submit_change_work = SubmitField(u'确认修改')

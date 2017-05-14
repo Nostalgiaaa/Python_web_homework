@@ -92,6 +92,9 @@ def teacher_page():
     form_addclass = AddClass()
     form_deleteclass = DeleteClass()
     form_changeclass = ChangeClass()
+    form_addwork = AddWork()
+    form_deletework = DeleteWork()
+    form_change_work = ChangeWork()
     if form_addclass.submit_addclass.data and form_addclass.validate_on_submit():
         name = form_addclass.class_name.data
         teacher_class = TeachClass(teacher_id=current_user.Id, class_name=name)
@@ -114,6 +117,37 @@ def teacher_page():
         change_class.class_name = after_name
         db.session.commit()
         flash(u'修改课程信息成功.')
+        return redirect(url_for('main.teacher_page'))
+    if form_addwork.submit_add_work.data and form_addwork.validate_on_submit():
+        class_id = form_addwork.class_id.data
+        work_name = form_addwork.work_name.data
+        end_date = form_addwork.end_date.data
+        add_work = HomeWork(class_id=class_id, homework_name=work_name, end_date=end_date, teacher_id=current_user.Id)
+        db.session.add(add_work)
+        db.session.commit()
+        flash(u'增加作业成功.')
+        return redirect(url_for('main.teacher_page'))
+    if form_deletework.submit_delete_work.data and form_deletework.validate_on_submit():
+        work_name = form_deletework.work_name_delete.data
+        delete_work = HomeWork.query.filter_by(homework_id=work_name).first()
+        db.session.delete(delete_work)
+        db.session.commit()
+        flash(u'删除作业成功.')
+        return redirect(url_for('main.teacher_page'))
+
+    work_name_after_change = StringField(u'新课程名，不填即为不修改', validators=[InputRequired()])
+    end_date_after_change = StringField(u'新截止日期,不填即为不修改', validators=[InputRequired()])
+    if form_change_work.submit_change_work.data and form_change_work.validate_on_submit():
+        id = form_change_work.work_id.data
+        name_new = form_change_work.work_name_after_change.data
+        end_date_new = form_change_work.end_date_after_change.data
+        change_work = HomeWork.query.filter_by(homework_id=id).first()
+        if name_new:
+            change_work.homework_name = name_new
+        if end_date_new:
+            change_work.end_date = end_date_new
+        db.session.commit()
+        flash(u'修改作业信息成功.')
         return redirect(url_for('main.teacher_page'))
     return render_template('teacher_page.html')
 
@@ -144,7 +178,7 @@ def manager_teacher():
     return render_template('manager_teacher.html', Form_teacher=form_regteacher, Form_password_teacher=form_teacher_password)
 
 
-# 教师界面
+# 教师管理课程界面
 @login_required
 @main.route('/teacher_class', methods=['get', 'post'])
 def teacher_class():
@@ -159,6 +193,24 @@ def teacher_class():
     form_changeclass = ChangeClass()
     return render_template('teacher_class.html', return_list=return_list, Form_addclass=form_addclass,
                            Form_deleteclass=form_deleteclass, Form_changeclass=form_changeclass,
+                           )
+
+
+# 教师管理作业界面
+@login_required
+@main.route('/teacher_work', methods=['get', 'post'])
+def teacher_work():
+    work_list = HomeWork.query.filter_by(teacher_id=current_user.Id)
+    return_list = []
+    form_addwork = AddWork()
+    form_delete_work = DeleteWork()
+    form_change_work = ChangeWork()
+    for work_ in work_list:
+        return_list.append(
+            [work_.homework_id, work_.class_id, work_.homework_name, work_.end_date]
+        )
+    return render_template('teacher_work.html', return_list=return_list, Form_addwork=form_addwork,
+                           Form_delete_work=form_delete_work, Form_change_work=form_change_work,
                            )
 
 

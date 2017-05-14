@@ -100,6 +100,15 @@ class TeachClass(db.Model):
     class_name = db.Column(db.String(50))
 
 
+class HomeWork(db.Model):
+    __tablename__ = 'homework'
+    homework_id = db.Column(db.Integer, primary_key=True)
+    class_id = db.Column(db.Integer)
+    homework_name = db.Column(db.String(50))
+    end_date = db.Column(db.String(10))
+    teacher_id = db.Column(db.Integer)
+
+
 
 
 @login_manager.user_loader
