@@ -5,7 +5,7 @@
 {% endblock %}
 {% block title %}您好，老师{% endblock %}
 {% block navbar %}
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+<script src="{{ url_for('static', filename = 'js/jquery.min.js') }}">
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="navbar navbar-inverse" role="navigation">
@@ -15,6 +15,7 @@
 
             <li role="presentation" id="class"><a href="#">课程</a></li>
             <li role="presentation" id="work"><a href="#">作业</a></li>
+            <li role="presentation" id="assign"><a href="#">分数和评语</a></li>
             <li role="presentation" id="inf"><a href="#">信息</a></li>
             <li role="presentation" id="score_inf"><a href="#">成绩单</a></li>
             <li role="presentation" id="message"><a href="#">公告</a></li>
@@ -38,6 +39,8 @@
     $("#work").click(function(){
   $("#show_place").load("{{ url_for('main.teacher_work') }}");
   });
+
+
 
 });
 </script>

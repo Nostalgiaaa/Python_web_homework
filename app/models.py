@@ -109,6 +109,14 @@ class HomeWork(db.Model):
     teacher_id = db.Column(db.Integer)
 
 
+class HomeWorkStudent(db.Model):
+    __tablename__ = 'homeworkstudent'
+    assign_id = db.Column(db.Integer, primary_key=True)
+    student_id = db.Column(db.Integer)
+    homework_id = db.Column(db.Integer)
+    score = db.Column(db.Integer)
+    comment = db.Column(db.Text)
+    store_place = db.Column(db.String(50))
 
 
 @login_manager.user_loader

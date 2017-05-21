@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
 from . import main
 from datetime import datetime
 from flask import render_template, session, redirect, url_for, request, flash, current_app
@@ -11,7 +12,6 @@ from ..models import *
 from flask_login import login_user
 from flask_login import logout_user, login_required
 from flask_login import current_user
-import time
 
 
 # 主页面
@@ -95,6 +95,7 @@ def teacher_page():
     form_addwork = AddWork()
     form_deletework = DeleteWork()
     form_change_work = ChangeWork()
+    form_add_student_work = AddStudentWork()
     if form_addclass.submit_addclass.data and form_addclass.validate_on_submit():
         name = form_addclass.class_name.data
         teacher_class = TeachClass(teacher_id=current_user.Id, class_name=name)
@@ -135,8 +136,6 @@ def teacher_page():
         flash(u'删除作业成功.')
         return redirect(url_for('main.teacher_page'))
 
-    work_name_after_change = StringField(u'新课程名，不填即为不修改', validators=[InputRequired()])
-    end_date_after_change = StringField(u'新截止日期,不填即为不修改', validators=[InputRequired()])
     if form_change_work.submit_change_work.data and form_change_work.validate_on_submit():
         id = form_change_work.work_id.data
         name_new = form_change_work.work_name_after_change.data
@@ -149,6 +148,13 @@ def teacher_page():
         db.session.commit()
         flash(u'修改作业信息成功.')
         return redirect(url_for('main.teacher_page'))
+    if form_add_student_work.submit_add_student_work.data and form_add_student_work.validate_on_submit():
+        student_id = form_add_student_work.student_id.data
+        homework_id = form_add_student_work.homework_id.data
+        add_work = HomeWorkStudent(student_id=student_id, homework_id=homework_id)
+        db.session.add(add_work)
+        db.session.commit()
+        flash(u'分配作业成功.')
     return render_template('teacher_page.html')
 
 
@@ -205,12 +211,14 @@ def teacher_work():
     form_addwork = AddWork()
     form_delete_work = DeleteWork()
     form_change_work = ChangeWork()
+    form_add_student_work = AddStudentWork()
     for work_ in work_list:
         return_list.append(
             [work_.homework_id, work_.class_id, work_.homework_name, work_.end_date]
         )
     return render_template('teacher_work.html', return_list=return_list, Form_addwork=form_addwork,
                            Form_delete_work=form_delete_work, Form_change_work=form_change_work,
+                           Form_add_student_work=form_add_student_work,
                            )
 
 

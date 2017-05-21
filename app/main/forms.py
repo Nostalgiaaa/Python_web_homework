@@ -172,3 +172,9 @@ class ChangeWork(Form):
     work_name_after_change = StringField(u'新课程名，不填即为不修改', validators=[])
     end_date_after_change = StringField(u'新截止日期,不填即为不修改', validators=[])
     submit_change_work = SubmitField(u'确认修改')
+
+
+class AddStudentWork(Form):
+    student_id = StringField(u'学生id', validators=[InputRequired()])
+    homework_id = StringField(u'作业id', validators=[InputRequired()])
+    submit_add_student_work = SubmitField(u'确认添加')
