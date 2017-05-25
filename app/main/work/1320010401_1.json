@@ -1,0 +1,770 @@
+{
+    "source": {
+        "size": "",
+        "utime": 1489574871,
+        "mode": "hotel",
+        "src": "hotelbedsApi",
+        "num": 1,
+        "price": 6253,
+        "realPrice": {
+            "ccy": "CNY",
+            "tax": 0,
+            "val": 6252.24,
+            "dayPrice": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "price": 301.87,
+                    "date": "20170328"
+                },
+                {
+                    "price": 301.87,
+                    "date": "20170329"
+                },
+                {
+                    "price": 301.87,
+                    "date": "20170330"
+                },
+                {
+                    "price": 301.87,
+                    "date": "20170331"
+                },
+                null,
+                null
+            ]
+        },
+        "tax": 0,
+        "term": [{
+                "content": "2017-03-27T16:00:00+02:00\u540e\u53d6\u6d88\u6536\u53d61563.06CNY;|",
+                "title": "\u514d\u8d39\u53d6\u6d88",
+                "type": 1
+            },
+            {
+                "content": "",
+                "title": "\u5728\u7ebf\u9884\u4ed8",
+                "type": 2
+            },
+            {
+                "content": "",
+                "title": "\u4e0d\u542b\u65e9",
+                "type": 3
+            }
+        ],
+        "roomDesc": "",
+        "occ": 2,
+        "srcName": "hotelbedsAPI",
+        "sourceRoomId": "DBT.SU",
+        "bedDesc": "",
+        "miojiBuy": 1,
+        "rest": 2,
+        "sourceType": 2,
+        "roomType": "15328",
+        "sourceid": "18623",
+        "night": 4,
+        "ccy": "CNY",
+        "type": 0,
+        "id": "{\"checkin\":\"20170328\",\"checkout\":\"20170331\",\"md5\":\"a6a087dc1dcea78c\",\"need\":1,\"norm_room\":\"DoubleorTwinSUPERIOR\",\"occ\":2,\"source\":\"hotelbedsApi\",\"uid\":\"ht30656586\"}",
+        "selected": true,
+        "taxDesc": "\u542b\u7a0e\uff0f\u670d\u52a1\u8d39",
+        "priceWithTax": 6253,
+        "show": {
+            "ccy": "AUD",
+            "priceWithTax": 1207.46,
+            "price": 301.87,
+            "exchange": "CNY1=AUD0.1931",
+            "realPrice": {
+                "ccy": "CNY",
+                "tax": 0,
+                "val": 6252.24,
+                "price": 6252.24
+            },
+            "sourcePrice": {
+                "ccy": "CNY",
+                "price": 1563.06,
+                "totalPrice": 6252.24
+            },
+            "usePrice": {
+                "ccy": "AUD",
+                "price": 301.87,
+                "totalPrice": 1207.46
+            }
+        },
+        "rateKey": "{\"pre_book_token\": \"299501\", \"check_in\": \"2017-10-12\", \"booking_token\": \"\", \"prt_id\": \"15328\", \"prop_id\": \"2394\", \"meal_basis_id\": \"1\", \"room_type\": \"Room Only Double\"}"
+    },
+    "checkin": "20171012",
+    "checkout": "20171015",
+    "contact": {
+        "id": 525,
+        "uid": "59ytklpt58c5214e3892dkr0id191ode",
+        "tid": "lynryapt58c4e86e265bdfvaid12smv4",
+        "name": "\u674e\u6768",
+        "tel": "14343432342",
+        "email": "123213@ddd.dd",
+        "addr": "j",
+        "stat": 1
+    },
+    "traveller": [{
+        "id": 662,
+        "firstName": "YANG",
+        "lastName": "LI",
+        "birthday": "19900101",
+        "sex": "female",
+        "country": "n_100",
+        "countryCode": "CN",
+        "certificate": {
+            "type": 2,
+            "no": "F32423423",
+            "expire": "20170324"
+        },
+        "memo": ""
+    }],
+    "product": {
+        "orders": [{
+                "num": 1,
+                "apiStat": 2,
+                "orderIdMioji": "H0314213209vek"
+            },
+            {
+                "num": 1,
+                "apiStat": 5,
+                "orderIdMioji": "H0314213240hai"
+            }
+        ],
+        "checkout": "20170401",
+        "name": "\u6885\u8d39\u5c14\u7b2c\u4e00\u9152\u5e97",
+        "checkin": "20170328",
+        "dayPrice": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "price": 228.07,
+                "date": "20170328"
+            },
+            {
+                "price": 228.07,
+                "date": "20170329"
+            },
+            {
+                "price": 228.07,
+                "date": "20170330"
+            },
+            {
+                "price": 228.07,
+                "date": "20170331"
+            },
+            null,
+            null
+        ],
+        "custom": 0,
+        "star": 4,
+        "lname": "FirstHotelMayfair",
+        "verify": {
+            "failed": 0,
+            "sellout": 0,
+            "list": [{
+                    "size": "",
+                    "utime": 1489574871,
+                    "mode": "hotel",
+                    "src": "expediaApi",
+                    "num": 1,
+                    "price": 5006,
+                    "realPrice": {
+                        "ccy": "USD",
+                        "tax": -1,
+                        "val": 725.95,
+                        "dayPrice": [
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            {
+                                "price": 241.66,
+                                "date": "20170328"
+                            },
+                            {
+                                "price": 241.66,
+                                "date": "20170329"
+                            },
+                            {
+                                "price": 241.66,
+                                "date": "20170330"
+                            },
+                            {
+                                "price": 241.66,
+                                "date": "20170331"
+                            },
+                            null,
+                            null
+                        ]
+                    },
+                    "tax": -1,
+                    "term": [{
+                            "content": "Weunderstandthatsometimesplansfallthrough.Wedonotchargeacancelorchangefee.Whenthepropertychargessuchfeesinaccordancewithitsownpolicies,thecostwillbepassedontoyou.FirstHotelMayfairchargesthefollowingcancellationandchangefees.Theroom\/unittypeandrateselectedarenon-refundable.Shouldyouchangeorcancelthisreservationforanyreason,yourpaymentwillnotberefunded.Norefundswillbeissuedforlatecheck-inorearlycheck-out.Stayextensionsrequireanewreservation.Yourroom\/unitwillbeguaranteedforlatearrival.Hotelsupplierloyaltypointsand\/orairlinemilesmaynotbeawardedwhenbookingExpediaSpecialRateproperties.|Weunderstandthatsometimesplansfallthrough.Wedonotchargeacancelorchangefee.Whenthepropertychargessuchfeesinaccordancewithitsownpolicies,thecostwillbepassedontoyou.FirstHotelMayfairchargesthefollowingcancellationandchangefees.Theroom\/unittypeandrateselectedarenon-refundable.Shouldyouchangeorcancelthisreservationforanyreason,yourpaymentwillnotberefunded.Norefundswillbeissuedforlatecheck-inorearlycheck-out.Stayextensionsrequireanewreservation.Yourroom\/unitwillbeguaranteedforlatearrival.Hotelsupplierloyaltypointsand\/orairlinemilesmaynotbeawardedwhenbookingExpediaSpecialRateproperties.",
+                            "title": "\u53d6\u6d88\u653f\u7b56",
+                            "type": 1
+                        },
+                        {
+                            "content": "\u652f\u4ed8\u65b9\u5f0f\u8bf7\u4ee5\u6e90\u7f51\u7ad9\u4e3a\u51c6",
+                            "title": "\u652f\u4ed8\u65b9\u5f0f",
+                            "type": 2
+                        },
+                        {
+                            "content": "",
+                            "title": "\u4e0d\u542b\u65e9",
+                            "type": 3
+                        }
+                    ],
+                    "roomDesc": "",
+                    "occ": 2,
+                    "srcName": "ExpediaAPI",
+                    "sourceRoomId": "",
+                    "bedDesc": "",
+                    "miojiBuy": 1,
+                    "rest": 11,
+                    "sourceType": 2,
+                    "roomType": "StandardDoubleRoom",
+                    "sourceid": "6709",
+                    "night": 4,
+                    "ccy": "CNY",
+                    "type": 0,
+                    "id": "{\"checkin\":\"20170328\",\"checkout\":\"20170331\",\"md5\":\"10a8b4791da92dac\",\"need\":1,\"norm_room\":\"StandardDoubleRoom\",\"occ\":2,\"source\":\"expediaApi\",\"uid\":\"ht30656586\"}",
+                    "taxDesc": "\u4e0d\u542b\u7a0e\uff0f\u670d\u52a1\u8d39",
+                    "priceWithTax": 5006,
+                    "show": {
+                        "ccy": "AUD",
+                        "priceWithTax": 966.63,
+                        "price": 241.66,
+                        "exchange": "USD1=AUD1.3315",
+                        "realPrice": {
+                            "ccy": "USD",
+                            "tax": 0,
+                            "val": 725.95,
+                            "price": 725.95
+                        },
+                        "sourcePrice": {
+                            "ccy": "USD",
+                            "price": 181.49,
+                            "totalPrice": 725.95
+                        },
+                        "usePrice": {
+                            "ccy": "AUD",
+                            "price": 241.66,
+                            "totalPrice": 966.63
+                        }
+                    },
+                    "rateKey": "b5b46769-008c-4c1a-8838-854dd34bf78b_V3"
+                },
+                {
+                    "size": "18",
+                    "utime": 1489574871,
+                    "mode": "hotel",
+                    "src": "travelocity",
+                    "num": 1,
+                    "price": 5006,
+                    "realPrice": {
+                        "ccy": "USD",
+                        "tax": -1,
+                        "val": 725.95,
+                        "dayPrice": [
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            {
+                                "price": 241.66,
+                                "date": "20170328"
+                            },
+                            {
+                                "price": 241.66,
+                                "date": "20170329"
+                            },
+                            {
+                                "price": 241.66,
+                                "date": "20170330"
+                            },
+                            {
+                                "price": 241.66,
+                                "date": "20170331"
+                            },
+                            null,
+                            null
+                        ]
+                    },
+                    "tax": -1,
+                    "term": [{
+                            "content": "Thisspecialdiscountedrateisnon-refundable.Ifyouchoosetochangeorcancelthisbookingyouwillnotberefundedanyofthepayment.|Thisspecialdiscountedrateisnon-refundable.Ifyouchoosetochangeorcancelthisbookingyouwillnotberefundedanyofthepayment.",
+                            "title": "\u4e0d\u53ef\u53d6\u6d88",
+                            "type": 1
+                        },
+                        {
+                            "content": "",
+                            "title": "\u5728\u7ebf\u9884\u4ed8",
+                            "type": 2
+                        },
+                        {
+                            "content": "",
+                            "title": "\u4e0d\u542b\u65e9",
+                            "type": 3
+                        }
+                    ],
+                    "roomDesc": "1DoubleBed194-sq-foot(18-sq-meter)roomwithcityviewsEntertainment-FreeWiFi,flat-screenTVwithcablechannelsBathroom-Privatebathroom,shower\/tubcombination,freetoiletries,andahairdryerPractical-Iron\/ironingboard;rollaway\/extrabedsandcribs\/infantbedsavailableonrequestComfort-DailyhousekeepingNeedtoKnow-Nocribs(infantbeds)orrollaway\/extrabedsavailableNon-Smoking",
+                    "occ": 2,
+                    "srcName": "Travelocity",
+                    "sourceRoomId": "",
+                    "bedDesc": "1doublebed",
+                    "miojiBuy": 0,
+                    "rest": 5,
+                    "sourceType": 1,
+                    "roomType": "StandardDoubleRoom",
+                    "sourceid": "6709",
+                    "night": 4,
+                    "ccy": "CNY",
+                    "type": 0,
+                    "id": "{\"checkin\":\"20170328\",\"checkout\":\"20170331\",\"md5\":\"56c884def25103c1\",\"need\":1,\"norm_room\":\"StandardDoubleRoom\",\"occ\":2,\"source\":\"travelocity\",\"uid\":\"ht30656586\"}",
+                    "taxDesc": "\u542b\u7a0e\uff0f\u670d\u52a1\u8d39",
+                    "priceWithTax": 5006,
+                    "show": {
+                        "ccy": "AUD",
+                        "priceWithTax": 966.63,
+                        "price": 241.66,
+                        "exchange": "USD1=AUD1.3315",
+                        "realPrice": {
+                            "ccy": "USD",
+                            "tax": 0,
+                            "val": 725.95,
+                            "price": 725.95
+                        },
+                        "sourcePrice": {
+                            "ccy": "USD",
+                            "price": 181.49,
+                            "totalPrice": 725.95
+                        },
+                        "usePrice": {
+                            "ccy": "AUD",
+                            "price": 241.66,
+                            "totalPrice": 966.63
+                        }
+                    },
+                    "rateKey": ""
+                },
+                {
+                    "size": "18",
+                    "utime": 1489574871,
+                    "mode": "hotel",
+                    "src": "orbitz",
+                    "num": 1,
+                    "price": 5006,
+                    "realPrice": {
+                        "ccy": "USD",
+                        "tax": -1,
+                        "val": 725.95,
+                        "dayPrice": [
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            {
+                                "price": 241.66,
+                                "date": "20170328"
+                            },
+                            {
+                                "price": 241.66,
+                                "date": "20170329"
+                            },
+                            {
+                                "price": 241.66,
+                                "date": "20170330"
+                            },
+                            {
+                                "price": 241.66,
+                                "date": "20170331"
+                            },
+                            null,
+                            null
+                        ]
+                    },
+                    "tax": -1,
+                    "term": [{
+                            "content": "Thisspecialdiscountedrateisnon-refundable.Ifyouchoosetochangeorcancelthisbookingyouwillnotberefundedanyofthepayment.|Thisspecialdiscountedrateisnon-refundable.Ifyouchoosetochangeorcancelthisbookingyouwillnotberefundedanyofthepayment.",
+                            "title": "\u4e0d\u53ef\u53d6\u6d88",
+                            "type": 1
+                        },
+                        {
+                            "content": "",
+                            "title": "\u5728\u7ebf\u9884\u4ed8",
+                            "type": 2
+                        },
+                        {
+                            "content": "",
+                            "title": "\u4e0d\u542b\u65e9",
+                            "type": 3
+                        }
+                    ],
+                    "roomDesc": "2TwinBeds194-sq-foot(18-sq-meter)roomwithcityviewsEntertainment-FreeWiFi,flat-screenTVwithcablechannelsBathroom-Privatebathroom,shower,freetoiletries,andahairdryerPractical-Rollaway\/extrabedsandcribs\/infantbedsavailableonrequestComfort-DailyhousekeepingNeedtoKnow-Nocribs(infantbeds)orrollaway\/extrabedsavailableNon-Smoking",
+                    "occ": 2,
+                    "srcName": "Orbitz",
+                    "sourceRoomId": "",
+                    "bedDesc": "2twinbeds",
+                    "miojiBuy": 0,
+                    "rest": 1,
+                    "sourceType": 1,
+                    "roomType": "StandardTwinRoom",
+                    "sourceid": "6709",
+                    "night": 4,
+                    "ccy": "CNY",
+                    "type": 0,
+                    "id": "{\"checkin\":\"20170328\",\"checkout\":\"20170331\",\"md5\":\"fa2c68c03ce84f48\",\"need\":1,\"norm_room\":\"StandardTwinRoom\",\"occ\":2,\"source\":\"orbitz\",\"uid\":\"ht30656586\"}",
+                    "taxDesc": "\u542b\u7a0e\uff0f\u670d\u52a1\u8d39",
+                    "priceWithTax": 5006,
+                    "show": {
+                        "ccy": "AUD",
+                        "priceWithTax": 966.63,
+                        "price": 241.66,
+                        "exchange": "USD1=AUD1.3315",
+                        "realPrice": {
+                            "ccy": "USD",
+                            "tax": 0,
+                            "val": 725.95,
+                            "price": 725.95
+                        },
+                        "sourcePrice": {
+                            "ccy": "USD",
+                            "price": 181.49,
+                            "totalPrice": 725.95
+                        },
+                        "usePrice": {
+                            "ccy": "AUD",
+                            "price": 241.66,
+                            "totalPrice": 966.63
+                        }
+                    },
+                    "rateKey": ""
+                },
+                {
+                    "size": "",
+                    "utime": 1489574871,
+                    "mode": "hotel",
+                    "src": "hoteltravel",
+                    "num": 1,
+                    "price": 4049,
+                    "realPrice": {
+                        "ccy": "EUR",
+                        "tax": 136.84,
+                        "val": 547.36,
+                        "dayPrice": [
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            {
+                                "price": 244.34,
+                                "date": "20170328"
+                            },
+                            {
+                                "price": 244.34,
+                                "date": "20170329"
+                            },
+                            {
+                                "price": 244.34,
+                                "date": "20170330"
+                            },
+                            {
+                                "price": 244.34,
+                                "date": "20170331"
+                            },
+                            null,
+                            null
+                        ]
+                    },
+                    "tax": 1013,
+                    "term": [{
+                            "content": "ThisrateisNon-Refundable.Cancellations,orno-showswillbesubjecttoahotelfeeequaltothefullbookingamount.|ThisrateisNon-Refundable.Cancellations,orno-showswillbesubjecttoahotelfeeequaltothefullbookingamount.",
+                            "title": "\u4e0d\u53ef\u53d6\u6d88",
+                            "type": 1
+                        },
+                        {
+                            "content": "",
+                            "title": "\u5728\u7ebf\u9884\u4ed8",
+                            "type": 2
+                        },
+                        {
+                            "content": "",
+                            "title": "\u4e0d\u542b\u65e9",
+                            "type": 3
+                        }
+                    ],
+                    "roomDesc": "DVD\u64ad\u653e\u673a||\u514d\u8d39\u65e0\u7ebf\u7f51||\u5199\u5b57\u684c||\u5439\u98ce\u673a||\u65e0\u70df\u5ba2\u623f||\u65e0\u7ebf\u548c\u536b\u661f\u7535\u89c6\u9891\u9053\u5e73\u9762\u7535\u89c6\u673a||\u71a8\u6597\u548c\u71a8\u8863\u677f||\u7535\u8bdd||\u8ff7\u4f60\u9152\u5427",
+                    "occ": 2,
+                    "srcName": "HotelTravel",
+                    "sourceRoomId": "",
+                    "bedDesc": "",
+                    "miojiBuy": 0,
+                    "rest": 3,
+                    "sourceType": 1,
+                    "roomType": "Standarddoubleroom",
+                    "sourceid": "denmark\/copenhagen\/comfort_mayfair.htm",
+                    "night": 4,
+                    "ccy": "CNY",
+                    "type": 0,
+                    "id": "{\"checkin\":\"20170328\",\"checkout\":\"20170331\",\"md5\":\"8c856cad460e9c12\",\"need\":1,\"norm_room\":\"Standarddoubleroom\",\"occ\":2,\"source\":\"hoteltravel\",\"uid\":\"ht30656586\"}",
+                    "taxDesc": "\u542b\u7a0e\uff0f\u670d\u52a1\u8d39",
+                    "priceWithTax": 5061,
+                    "show": {
+                        "ccy": "AUD",
+                        "priceWithTax": 977.34,
+                        "price": 244.34,
+                        "exchange": "EUR1=AUD1.4284",
+                        "realPrice": {
+                            "ccy": "EUR",
+                            "tax": 136.84,
+                            "val": 547.36,
+                            "price": 684.2
+                        },
+                        "sourcePrice": {
+                            "ccy": "EUR",
+                            "price": 171.05,
+                            "totalPrice": 684.2
+                        },
+                        "usePrice": {
+                            "ccy": "AUD",
+                            "price": 244.34,
+                            "totalPrice": 977.34
+                        }
+                    },
+                    "rateKey": ""
+                },
+                {
+                    "size": "",
+                    "utime": 1489574871,
+                    "mode": "hotel",
+                    "src": "hotelbedsApi",
+                    "num": 1,
+                    "price": 5751,
+                    "realPrice": {
+                        "ccy": "CNY",
+                        "tax": 0,
+                        "val": 5750.08,
+                        "dayPrice": [
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            {
+                                "price": 277.62,
+                                "date": "20170328"
+                            },
+                            {
+                                "price": 277.62,
+                                "date": "20170329"
+                            },
+                            {
+                                "price": 277.62,
+                                "date": "20170330"
+                            },
+                            {
+                                "price": 277.62,
+                                "date": "20170331"
+                            },
+                            null,
+                            null
+                        ]
+                    },
+                    "tax": 0,
+                    "term": [{
+                            "content": "2017-03-27T16:00:00+02:00\u540e\u53d6\u6d88\u6536\u53d61437.52CNY;|",
+                            "title": "\u514d\u8d39\u53d6\u6d88",
+                            "type": 1
+                        },
+                        {
+                            "content": "",
+                            "title": "\u5728\u7ebf\u9884\u4ed8",
+                            "type": 2
+                        },
+                        {
+                            "content": "",
+                            "title": "\u4e0d\u542b\u65e9",
+                            "type": 3
+                        }
+                    ],
+                    "roomDesc": "",
+                    "occ": 2,
+                    "srcName": "hotelbedsAPI",
+                    "sourceRoomId": "DBT.ST",
+                    "bedDesc": "",
+                    "miojiBuy": 1,
+                    "rest": 10,
+                    "sourceType": 2,
+                    "roomType": "DoubleorTwinSTANDARD",
+                    "sourceid": "18623",
+                    "night": 4,
+                    "ccy": "CNY",
+                    "type": 0,
+                    "id": "{\"checkin\":\"20170328\",\"checkout\":\"20170331\",\"md5\":\"57e1e5b5a2b73ec0\",\"need\":1,\"norm_room\":\"DoubleorTwinSTANDARD\",\"occ\":2,\"source\":\"hotelbedsApi\",\"uid\":\"ht30656586\"}",
+                    "taxDesc": "\u542b\u7a0e\uff0f\u670d\u52a1\u8d39",
+                    "priceWithTax": 5751,
+                    "show": {
+                        "ccy": "AUD",
+                        "priceWithTax": 1110.48,
+                        "price": 277.62,
+                        "exchange": "CNY1=AUD0.1931",
+                        "realPrice": {
+                            "ccy": "CNY",
+                            "tax": 0,
+                            "val": 5750.08,
+                            "price": 5750.08
+                        },
+                        "sourcePrice": {
+                            "ccy": "CNY",
+                            "price": 1437.52,
+                            "totalPrice": 5750.08
+                        },
+                        "usePrice": {
+                            "ccy": "AUD",
+                            "price": 277.62,
+                            "totalPrice": 1110.48
+                        }
+                    },
+                    "rateKey": "20170328|20170401|W|195|18623|DBT.ST|CG-FIT|BB||1~2~0||N@A0F5CD32319349E780334C6B15298D79"
+                },
+                {
+                    "size": "",
+                    "utime": 1489574871,
+                    "mode": "hotel",
+                    "src": "hotels",
+                    "num": 1,
+                    "price": 4988,
+                    "realPrice": {
+                        "ccy": "CNY",
+                        "tax": 773.14,
+                        "val": 4988,
+                        "dayPrice": [
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            {
+                                "price": 278.16,
+                                "date": "20170328"
+                            },
+                            {
+                                "price": 278.16,
+                                "date": "20170329"
+                            },
+                            {
+                                "price": 278.16,
+                                "date": "20170330"
+                            },
+                            {
+                                "price": 278.16,
+                                "date": "20170331"
+                            },
+                            null,
+                            null
+                        ]
+                    },
+                    "tax": 774,
+                    "term": [{
+                            "content": "\u6b64\u7279\u522b\u6298\u6263\u623f\u4ef7\u4e0d\u53ef\u9000\u6b3e\u3002\u5982\u679c\u60a8\u9009\u62e9\u66f4\u6539\u6216\u53d6\u6d88\u6b64\u9884\u8ba2\uff0c\u60a8\u5c06\u4e0d\u4f1a\u83b7\u5f97\u4efb\u4f55\u9000\u6b3e\u3002|\u6b64\u7279\u522b\u6298\u6263\u623f\u4ef7\u4e0d\u53ef\u9000\u6b3e\u3002\u5982\u679c\u60a8\u9009\u62e9\u66f4\u6539\u6216\u53d6\u6d88\u6b64\u9884\u8ba2\uff0c\u60a8\u5c06\u4e0d\u4f1a\u83b7\u5f97\u4efb\u4f55\u9000\u6b3e\u3002",
+                            "title": "\u4e0d\u53ef\u53d6\u6d88",
+                            "type": 1
+                        },
+                        {
+                            "content": "",
+                            "title": "\u5728\u7ebf\u9884\u4ed8",
+                            "type": 2
+                        },
+                        {
+                            "content": "",
+                            "title": "\u4e0d\u542b\u65e9",
+                            "type": 3
+                        }
+                    ],
+                    "roomDesc": "\u5a31\u4e50-\u514d\u8d39WiFi\uff0c\u5e73\u677f\u7535\u89c6\u5e26\u6709\u7ebf\u9891\u9053||\u9910\u996e-\u5496\u5561\u58f6\/\u8336\u5177\u3001\u63d0\u4f9b\u4e00\u4e9b\u514d\u8d39\u7269\u54c1\u7684\u8ff7\u4f60\u5427\u548c\u514d\u8d39\u74f6\u88c5\u6c34||\u6d74\u5ba4-\u79c1\u4eba\u6d74\u5ba4\u5907\u6709\u6d74\u7f38\u6216\u6dcb\u6d74\u3001\u6d74\u8863\u548c\u62d6\u978b||\u5b9e\u7528-\u6c99\u53d1\u5e8a\u3001\u71a8\u6597\/\u71a8\u677f\u548c\u7535\u8bdd\uff1b\u5982\u6709\u9700\u8981\uff0c\u53ef\u63d0\u4f9b\u6298\u53e0\u5e8a\/\u52a0\u5e8a\u548c\u5a74\u513f\u5e8a\/\u5c0f\u7ae5\u5e8a||\u8212\u9002\u8bbe\u65bd\/\u670d\u52a1-\u6bcf\u65e5\u5ba2\u623f\u6e05\u6d01",
+                    "occ": 2,
+                    "srcName": "\u597d\u8ba2\u7f51",
+                    "sourceRoomId": "",
+                    "bedDesc": "1\u5f20\u53cc\u4eba\u5e8a\u548c1\u5f20\u6c99\u53d1\u5e8a",
+                    "miojiBuy": 0,
+                    "rest": 1,
+                    "sourceType": 1,
+                    "roomType": "\u8c6a\u534e\u53cc\u4eba\u623f",
+                    "sourceid": "168016",
+                    "night": 4,
+                    "ccy": "CNY",
+                    "type": 0,
+                    "id": "{\"checkin\":\"20170328\",\"checkout\":\"20170331\",\"md5\":\"a67906ce9da0d2bd\",\"need\":1,\"norm_room\":\"\u8c6a\u534e\u53cc\u4eba\u623f\",\"occ\":2,\"source\":\"hotels\",\"uid\":\"ht30656586\"}",
+                    "taxDesc": "\u542b\u7a0e\uff0f\u670d\u52a1\u8d39",
+                    "priceWithTax": 5762,
+                    "show": {
+                        "ccy": "AUD",
+                        "priceWithTax": 1112.62,
+                        "price": 278.16,
+                        "exchange": "CNY1=AUD0.1931",
+                        "realPrice": {
+                            "ccy": "CNY",
+                            "tax": 773.14,
+                            "val": 4988,
+                            "price": 5761.14
+                        },
+                        "sourcePrice": {
+                            "ccy": "CNY",
+                            "price": 1440.29,
+                            "totalPrice": 5761.14
+                        },
+                        "usePrice": {
+                            "ccy": "AUD",
+                            "price": 278.16,
+                            "totalPrice": 1112.62
+                        }
+                    },
+                    "rateKey": ""
+                }
+            ]
+        },
+        "room": {
+            "id": "{\"checkin\":\"20170328\",\"checkout\":\"20170401\",\"md5\":\"58ae9669dbb95b88\",\"need\":1,\"norm_room\":\"2\u4eba\u95f4\",\"occ\":2,\"source\":\"travelocity\",\"static\":\"\",\"uid\":\"ht30656586\"}",
+            "num": 1,
+            "occ": 2,
+            "price": 2788,
+            "type": "StandardDoubleRoom",
+            "evaluate": {
+                "val": 538.43,
+                "ccy": "AUD"
+            },
+            "totalPrice": 2788,
+            "night": 4
+        },
+        "id": "ht30656586",
+        "idx": {
+            "start": 5,
+            "end": 8
+        }
+    },
+    "continuePay": 0,
+    "tid": "lynryapt58c4e86e265bdfvaid12smv4",
+    "auth": {
+        "api_key": "x7a5zyj9pwztkw9y8kfaev4j",
+        "secret": "GpJwhTpxMu",
+        "time": 1488935650
+    },
+    "credit": {
+        "no": "4870131644457788",
+        "surname": "LIU",
+        "givenname": "YIN",
+        "expire_month": 9,
+        "expire_year": 2021,
+        "cvv2": "309"
+    }
+}

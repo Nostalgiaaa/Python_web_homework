@@ -39,6 +39,9 @@
     $("#work").click(function(){
   $("#show_place").load("{{ url_for('main.teacher_work') }}");
   });
+    $("#assign").click(function(){
+  $("#show_place").load("{{ url_for('main.teacher_score') }}");
+  });
 
 
 

@@ -9,8 +9,9 @@
         <div class="col-md-2">
             <div class="tabbable tabs-left"> <!-- Only required for left/right tabs -->
                 <ul class="nav nav-tables nav-stacked">
-                    <li class="active"><a href="#tab1" data-toggle="tab">上传作业</a></li>
-                    <li><a href="#tab2" data-toggle="tab">下载作业</a></li>
+                    <li class="active"><a href="#tab1" data-toggle="tab">打分,评语</a></li>
+                    <li><a href="#tab5" data-toggle="tab">下载作业</a></li>
+                    <li>
                 </ul>
             </div>
         </div>
@@ -18,16 +19,18 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="tab1">
                     <div class="page-header">
-                        <h1>上传作业</h1>
+                        <h1>打分,评语</h1>
+
                     </div>
-                    {{ wtf.quick_form(Form_handel_work) }}<p>
+                    {{ wtf.quick_form(Form_student_work_score) }}<p>
                 </div>
-                <div class="tab-pane" id="tab2">
+                <div class="tab-pane" id="tab5">
                     <div class="page-header">
                         <h1>下载作业</h1>
                     </div>
                     {{ wtf.quick_form(Form_download_work) }}<p>
                 </div>
+
             </div>
         </div>
         <div class="'col-md-6'"></div>

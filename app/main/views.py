@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
+from werkzeug.utils import secure_filename
 from . import main
 from datetime import datetime
 from flask import render_template, session, redirect, url_for, request, flash, current_app
@@ -12,6 +12,9 @@ from ..models import *
 from flask_login import login_user
 from flask_login import logout_user, login_required
 from flask_login import current_user
+from flask import send_from_directory
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 # 主页面
@@ -82,6 +85,29 @@ def manager_page():
 @login_required
 @main.route('/student', methods=['get', 'post'])
 def student_page():
+    handel_work = HandelWork()
+    download_work = DownloadWork()
+    if handel_work.submit_file.data and handel_work.validate_on_submit():
+        file = handel_work.file.data
+        fname = secure_filename(file.filename)
+        ext = fname.rsplit('.', 1)[1]
+        PATH = '/work'
+        file_name = str(current_user.Id) + '_' + handel_work.homework_id.data + '.' + ext
+        file_dir = basedir + PATH
+        if not os.path.exists(file_dir):
+            os.makedirs(file_dir)
+        flash(u'上传成功')
+        add_work = HomeWorkStudent.query.filter_by(student_id=current_user.Id, homework_id=handel_work.homework_id.data).first()
+        add_work.store_place = file_name
+        db.session.commit()
+        file.save(os.path.join(file_dir, file_name))
+        return redirect(url_for('main.student_page'))
+    if download_work.submit_file_download.data and download_work.validate_on_submit():
+        file_dir = basedir + '/work'
+        add_work = HomeWorkStudent.query.filter_by(student_id=current_user.Id,
+                                                   homework_id=handel_work.homework_id.data).first()
+        file_name = add_work.store_place
+        return send_from_directory(file_dir, file_name, as_attachment=True)
     return render_template('student_page.html')
 
 
@@ -96,6 +122,8 @@ def teacher_page():
     form_deletework = DeleteWork()
     form_change_work = ChangeWork()
     form_add_student_work = AddStudentWork()
+    form_student_work_score = AddStudentWorkScore()
+    form_download_work = DownloadWork()
     if form_addclass.submit_addclass.data and form_addclass.validate_on_submit():
         name = form_addclass.class_name.data
         teacher_class = TeachClass(teacher_id=current_user.Id, class_name=name)
@@ -155,6 +183,31 @@ def teacher_page():
         db.session.add(add_work)
         db.session.commit()
         flash(u'分配作业成功.')
+        return redirect(url_for('main.teacher_page'))
+    if form_student_work_score.submit_add_student_work_score.data and form_student_work_score.validate_on_submit():
+        student_id = form_student_work_score.student_id.data
+        homework_id = form_student_work_score.homework_id.data
+        score = form_student_work_score.score.data
+        assign = form_student_work_score.assign.data
+        add_score = HomeWorkStudent.query.filter_by(student_id=student_id, homework_id=homework_id).first()
+        add_score.score = score
+        add_score.comment = assign
+        db.session.commit()
+        flash(u'打分，评语成功.')
+        return redirect(url_for('main.teacher_page'))
+    if form_download_work.submit_file_download.data and form_download_work.validate_on_submit():
+        file_dir = basedir + '/work'
+        add_work = HomeWorkStudent.query.filter_by(student_id=form_download_work.student_id.data,
+                                                   homework_id=form_download_work.homework_id.data).first()
+        if not add_work:
+            flash(u'未分配作业或填写有错.')
+            return redirect(url_for('main.teacher_page'))
+        file_name = add_work.store_place
+        if not file_name:
+            flash(u'该学生还未上交作业.')
+            return redirect(url_for('main.teacher_page'))
+        file_name = add_work.store_place
+        return send_from_directory(file_dir, file_name, as_attachment=True)
     return render_template('teacher_page.html')
 
 
@@ -162,7 +215,28 @@ def teacher_page():
 @login_required
 @main.route('/student_work', methods=['get', 'post'])
 def student_work():
-    return render_template('student_work.html')
+    handel_work = HandelWork()
+    download_work = DownloadWork()
+    return render_template('student_work.html', Form_handel_work=handel_work, Form_download_work=download_work)
+
+
+# 学生查看评分界面
+@login_required
+@main.route('/student_score', methods=['get', 'post'])
+def student_score():
+    return_list = []
+    student_id = current_user.Id
+    class_list = HomeWorkStudent.query.filter_by(student_id=student_id)
+    for i in class_list:
+        homework_id = i.homework_id
+        class_name = HomeWork.query.filter_by(homework_id=homework_id).first()
+        class_name_ = class_name.homework_name
+        end_data = class_name.end_date
+        return_list.append(
+            [i.score, i.comment, class_name_, end_data]
+        )
+    return render_template('student_score.html', return_list=return_list)
+
 
 
 # 管理员管理学生界面
@@ -219,6 +293,17 @@ def teacher_work():
     return render_template('teacher_work.html', return_list=return_list, Form_addwork=form_addwork,
                            Form_delete_work=form_delete_work, Form_change_work=form_change_work,
                            Form_add_student_work=form_add_student_work,
+                           )
+
+
+# 教师管理评分界面
+@login_required
+@main.route('/teacher_score', methods=['get', 'post'])
+def teacher_score():
+    form_student_work_score = AddStudentWorkScore()
+    form_download_work = DownloadWork()
+    return render_template('teacher_score.html', Form_student_work_score=form_student_work_score,
+                           Form_download_work=form_download_work
                            )
 
 

@@ -2,6 +2,7 @@
 from flask_wtf import Form
 from wtforms import StringField, SubmitField, PasswordField, BooleanField, SelectField
 from wtforms.validators import Required, ValidationError, InputRequired, Email
+from flask_wtf.file import FileField, FileRequired, FileAllowed
 from ..models import *
 from wtforms.validators import Required, Length, Email, Regexp, EqualTo
 from wtforms import ValidationError
@@ -178,3 +179,26 @@ class AddStudentWork(Form):
     student_id = StringField(u'学生id', validators=[InputRequired()])
     homework_id = StringField(u'作业id', validators=[InputRequired()])
     submit_add_student_work = SubmitField(u'确认添加')
+
+
+class AddStudentWorkScore(Form):
+    student_id = StringField(u'学生id', validators=[InputRequired()])
+    homework_id = StringField(u'作业id', validators=[InputRequired()])
+    score = StringField(u'分数', validators=[InputRequired()])
+    assign = StringField(u'评语', validators=[InputRequired()])
+    submit_add_student_work_score = SubmitField(u'确认添加')
+
+
+class HandelWork(Form):
+    homework_id = StringField(u'作业id', validators=[InputRequired()])
+    file = FileField(u'上传文件', validators=[
+        # FileAllowed(['txt', 'doc', 'image', 'excel'], u'只能上传文档！'),
+        FileRequired(u'文件未选择！')
+    ])
+    submit_file = SubmitField(u'确认提交')
+
+
+class DownloadWork(Form):
+    student_id = StringField(u'学生id', validators=[InputRequired()])
+    homework_id = StringField(u'作业id', validators=[InputRequired()])
+    submit_file_download = SubmitField(u'下载作业')
