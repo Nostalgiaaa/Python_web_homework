@@ -22,7 +22,10 @@
                     </div>
                    <ul class="list-group">
                         {% for item in return_list %}
-                        <li class="list-group-item">作业名称：{{ item[2] }} 作业分数：{{ item[0] }}； 作业评价：{{ item[1] }}；截止日期：{{ item[3] }}</li>
+                        <li class="list-group-item">作业名称：{{ item[2] }} <br />
+                            作业分数：{{ item[0] }} <br />
+                            作业评价：{{ item[1] }} <br />
+                            截止日期：{{ item[3] }}</li>
                         {% endfor %}
                     </ul>
                 </div>

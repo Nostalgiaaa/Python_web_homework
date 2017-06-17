@@ -119,6 +119,17 @@ class HomeWorkStudent(db.Model):
     store_place = db.Column(db.String(50))
 
 
+class Message(db.Model):
+    __tablename__ = 'Message'
+    Message_id = db.Column(db.Integer, primary_key=True)
+    sent_msg = db.Column(db.String(50))
+    be_sent_msg = db.Column(db.String(50))
+    time = db.Column(db.String(50))
+    msg = db.Column(db.Text)
+
+
+
+
 @login_manager.user_loader
 def load_user(user_id):
     if Manager.query.get(int(user_id)):

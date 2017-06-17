@@ -124,6 +124,18 @@ def teacher_page():
     form_add_student_work = AddStudentWork()
     form_student_work_score = AddStudentWorkScore()
     form_download_work = DownloadWork()
+    form_message = AddMsg()
+    if form_message.submit_add_msg.data and form_message.validate_on_submit():
+        sent_id = current_user.Id
+        be_sent_id = form_message.be_sent_id.data
+        msg = form_message.msg.data
+        times = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        msg_ = Message(sent_msg=sent_id, be_sent_msg=be_sent_id, time=times, msg=msg)
+        db.session.add(msg_)
+        db.session.commit()
+        flash(u'添加消息成功.')
+        return redirect(url_for('main.teacher_page'))
+
     if form_addclass.submit_addclass.data and form_addclass.validate_on_submit():
         name = form_addclass.class_name.data
         teacher_class = TeachClass(teacher_id=current_user.Id, class_name=name)
@@ -220,6 +232,24 @@ def student_work():
     return render_template('student_work.html', Form_handel_work=handel_work, Form_download_work=download_work)
 
 
+# 学生查看信息
+@login_required
+@main.route('/student_message', methods=['get', 'post'])
+def student_message():
+    message = Message.query.filter_by(be_sent_msg=current_user.Id)
+    return_list = []
+    for i in message:
+        return_list.append(
+            {
+                'sent_msg': i.sent_msg,
+                'time': i.time,
+                'msg': i.msg
+            }
+        )
+    return_list = return_list[::-1]
+    return render_template('student_message.html', return_list=return_list)
+
+
 # 学生查看评分界面
 @login_required
 @main.route('/student_score', methods=['get', 'post'])
@@ -236,8 +266,6 @@ def student_score():
             [i.score, i.comment, class_name_, end_data]
         )
     return render_template('student_score.html', return_list=return_list)
-
-
 
 # 管理员管理学生界面
 @login_required
@@ -305,6 +333,14 @@ def teacher_score():
     return render_template('teacher_score.html', Form_student_work_score=form_student_work_score,
                            Form_download_work=form_download_work
                            )
+
+
+# 教师发布信息界面
+@login_required
+@main.route('/teacher_message', methods=['get', 'post'])
+def teacher_message():
+    form_message = AddMsg()
+    return render_template('teacher_message.html', Form_message=form_message)
 
 
 # 登录
